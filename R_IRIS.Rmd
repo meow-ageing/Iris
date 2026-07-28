@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r iris0, echo= F}
 
 #Set your OWN working directory 
-setwd("C:/Users/rmjdszh/OneDrive - University College London/Iris_repo")
+setwd("/Users/sadaf/Documents/GitHub/Iris")
 
 ```
 
@@ -77,3 +77,13 @@ sd_sepal_length <- aggregate(
 )
 
 print(sd_sepal_length)
+```
+#change
+
+```{r iris7}
+tapply(iris$Sepal.Length, iris$Species, mean)
+```
+
+
+
+
