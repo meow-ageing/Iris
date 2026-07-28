@@ -1,0 +1,79 @@
+---
+title: "Workshop"
+author: "Shunqi Zhang"
+date: "2026-07-21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Task 0; Set Working Directory 
+
+```{r iris0, echo= F}
+
+#Set your OWN working directory 
+setwd("C:/Users/rmjdszh/OneDrive - University College London/Iris_repo")
+
+```
+
+## Task 1: Read the csv
+```{r iris1, echo=FALSE}
+
+#Iris is available in R library 'datasets'
+iris <- iris
+
+print(iris)
+
+```
+
+## Task 2: Save the data 
+
+```{r iris2, echo=FALSE}
+
+write.csv(iris, "iris.csv")
+
+
+```
+
+## Task 4: Fix a bug 
+
+```{r iris4}
+
+# Filter rows where Species is "setosa"
+
+setosa_data <- subset(iris, Species == "setosa")
+
+write.table(
+  setosa_data,
+  file = "setosa_data.csv",
+  sep = ",",
+  row.names = FALSE,
+  col.names = TRUE,
+  quote = FALSE
+)
+```
+
+
+##Task 5: Calculate Mean 
+```{r iris5}
+
+
+mean(iris$Sepal.Length)
+```
+
+## New Task: Calculate Standard Deviation
+
+```{r iris6, echo=TRUE}
+
+# Calculate the standard deviation of Sepal Length
+# for each iris species
+
+sd_sepal_length <- aggregate(
+  Sepal.Length ~ Species,
+  data = iris,
+  FUN = sd
+)
+
+print(sd_sepal_length)
